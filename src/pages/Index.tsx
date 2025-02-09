@@ -1,11 +1,59 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import ProfileHeader from "@/components/ProfileHeader";
+import AchievementsSection from "@/components/AchievementsSection";
+import SubjectsSection from "@/components/SubjectsSection";
 
 const Index = () => {
+  // This would typically come from an API or database
+  const mockData = {
+    profile: {
+      name: "Alex Thompson",
+      grade: "11th Grade",
+      bio: "Passionate high school student dedicated to helping younger students excel in their studies. Specializing in mathematics and sciences with a track record of academic excellence.",
+      imageUrl: "https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+    },
+    achievements: [
+      {
+        id: "1",
+        title: "Mathematics Olympiad - Gold Medal",
+        description: "Secured first place in the regional mathematics competition",
+        date: "2023-05-15",
+      },
+      {
+        id: "2",
+        title: "Science Fair Winner",
+        description: "First place in school science fair for physics project",
+        date: "2023-03-20",
+      },
+    ],
+    subjects: [
+      {
+        id: "1",
+        name: "Mathematics",
+        gradeLevel: "Primary 4-6",
+        description: "Algebra, geometry, and basic arithmetic",
+      },
+      {
+        id: "2",
+        name: "Science",
+        gradeLevel: "Middle School 7-8",
+        description: "Physics and chemistry fundamentals",
+      },
+      {
+        id: "3",
+        name: "English",
+        gradeLevel: "Primary 1-3",
+        description: "Reading comprehension and basic writing",
+      },
+    ],
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <div className="min-h-screen bg-secondary/30 py-8 px-4">
+      <div className="space-y-6 max-w-4xl mx-auto">
+        <ProfileHeader initialData={mockData.profile} />
+        <AchievementsSection initialAchievements={mockData.achievements} />
+        <SubjectsSection initialSubjects={mockData.subjects} />
       </div>
     </div>
   );
