@@ -4,6 +4,7 @@ import AchievementsSection from "@/components/AchievementsSection";
 import SubjectsSection from "@/components/SubjectsSection";
 import CourseWorkSection from "@/components/CourseWorkSection";
 import HobbiesSection from "@/components/HobbiesSection";
+import TutoringExperienceSection from "@/components/TutoringExperienceSection";
 
 const Index = () => {
   // This would typically come from an API or database
@@ -80,12 +81,29 @@ const Index = () => {
         description: "Playing piano for 8 years, performed at school concerts and community events",
       },
     ],
+    tutoringExperience: [
+      {
+        id: "1",
+        position: "Mathematics Tutor",
+        organization: "Local Learning Center",
+        period: "Sep 2023 - Present",
+        description: "Tutoring middle school students in algebra and geometry. Helped improve test scores by an average of 15%.",
+      },
+      {
+        id: "2",
+        position: "Science Study Group Leader",
+        organization: "High School Peer Tutoring Program",
+        period: "Jan 2023 - Jun 2023",
+        description: "Led weekly study groups for freshman students in physics and chemistry. Organized practice sessions and created study materials.",
+      },
+    ],
   };
 
   return (
     <div className="min-h-screen bg-secondary/30 py-8 px-4">
       <div className="space-y-6 max-w-4xl mx-auto">
         <ProfileHeader initialData={mockData.profile} />
+        <TutoringExperienceSection initialExperiences={mockData.tutoringExperience} />
         <CourseWorkSection initialCourses={mockData.courses} />
         <AchievementsSection initialAchievements={mockData.achievements} />
         <SubjectsSection initialSubjects={mockData.subjects} />
