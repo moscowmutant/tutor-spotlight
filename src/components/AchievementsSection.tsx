@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
-import { Edit2, Plus, X, Check } from "lucide-react";
+import { Edit2, Plus, Check, Book } from "lucide-react";
 
 interface Achievement {
   id: string;
@@ -42,9 +42,12 @@ export default function AchievementsSection({
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-6 bg-white rounded-xl shadow-sm mt-6 animate-fadeIn">
+    <div className="w-full bg-white rounded-xl shadow-sm p-6 animate-fadeIn">
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-bold text-foreground">Achievements</h2>
+        <div className="flex items-center gap-2">
+          <Book className="w-5 h-5 text-primary" />
+          <h2 className="text-xl font-semibold text-foreground">Achievements</h2>
+        </div>
         <Button
           variant="outline"
           size="sm"
@@ -65,36 +68,29 @@ export default function AchievementsSection({
 
       <div className="space-y-4">
         {achievements.map((achievement) => (
-          <Card
+          <div
             key={achievement.id}
-            className="p-4 relative hover:shadow-md transition-shadow"
+            className="flex gap-4 items-start p-4 bg-secondary/20 rounded-lg"
           >
-            <div className="flex justify-between items-start">
-              <div>
-                <h3 className="font-semibold text-lg text-foreground">
-                  {achievement.title}
-                </h3>
-                <p className="text-sm text-muted-foreground">
-                  {achievement.date}
-                </p>
-                <p className="mt-2 text-foreground/80">{achievement.description}</p>
-              </div>
-              {isEditing && (
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => handleDelete(achievement.id)}
-                  className="text-red-500 hover:text-red-700"
-                >
-                  <X className="w-4 h-4" />
-                </Button>
-              )}
+            <div className="flex-1">
+              <h3 className="font-medium text-foreground">{achievement.title}</h3>
+              <p className="text-sm text-muted-foreground">{achievement.date}</p>
+              <p className="mt-2 text-foreground/80">{achievement.description}</p>
             </div>
-          </Card>
+            {isEditing && (
+              <Button
+                variant="destructive"
+                size="sm"
+                onClick={() => handleDelete(achievement.id)}
+              >
+                Delete
+              </Button>
+            )}
+          </div>
         ))}
 
         {isEditing && (
-          <Card className="p-4 border-2 border-dashed">
+          <div className="p-4 border-2 border-dashed rounded-lg">
             <div className="space-y-4">
               <Input
                 placeholder="Achievement title"
@@ -128,7 +124,7 @@ export default function AchievementsSection({
                 <Plus className="w-4 h-4" /> Add Achievement
               </Button>
             </div>
-          </Card>
+          </div>
         )}
       </div>
     </div>
