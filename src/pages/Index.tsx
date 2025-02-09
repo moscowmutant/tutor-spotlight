@@ -3,6 +3,7 @@ import ProfileHeader from "@/components/ProfileHeader";
 import AchievementsSection from "@/components/AchievementsSection";
 import SubjectsSection from "@/components/SubjectsSection";
 import CourseWorkSection from "@/components/CourseWorkSection";
+import HobbiesSection from "@/components/HobbiesSection";
 
 const Index = () => {
   // This would typically come from an API or database
@@ -67,6 +68,18 @@ const Index = () => {
         year: "2022-2023",
       },
     ],
+    hobbies: [
+      {
+        id: "1",
+        name: "Chess Club",
+        description: "Member of the school chess club, participating in weekly tournaments and teaching beginners",
+      },
+      {
+        id: "2",
+        name: "Piano",
+        description: "Playing piano for 8 years, performed at school concerts and community events",
+      },
+    ],
   };
 
   return (
@@ -76,6 +89,7 @@ const Index = () => {
         <CourseWorkSection initialCourses={mockData.courses} />
         <AchievementsSection initialAchievements={mockData.achievements} />
         <SubjectsSection initialSubjects={mockData.subjects} />
+        <HobbiesSection initialHobbies={mockData.hobbies} />
       </div>
     </div>
   );
