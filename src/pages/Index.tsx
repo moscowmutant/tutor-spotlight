@@ -2,6 +2,7 @@
 import ProfileHeader from "@/components/ProfileHeader";
 import AchievementsSection from "@/components/AchievementsSection";
 import SubjectsSection from "@/components/SubjectsSection";
+import CourseWorkSection from "@/components/CourseWorkSection";
 
 const Index = () => {
   // This would typically come from an API or database
@@ -46,12 +47,33 @@ const Index = () => {
         description: "Reading comprehension and basic writing",
       },
     ],
+    courses: [
+      {
+        id: "1",
+        name: "Advanced Placement Calculus AB",
+        grade: "A",
+        year: "2023-2024",
+      },
+      {
+        id: "2",
+        name: "Advanced Placement Physics 1",
+        grade: "A",
+        year: "2023-2024",
+      },
+      {
+        id: "3",
+        name: "Honors Chemistry",
+        grade: "A-",
+        year: "2022-2023",
+      },
+    ],
   };
 
   return (
     <div className="min-h-screen bg-secondary/30 py-8 px-4">
       <div className="space-y-6 max-w-4xl mx-auto">
         <ProfileHeader initialData={mockData.profile} />
+        <CourseWorkSection initialCourses={mockData.courses} />
         <AchievementsSection initialAchievements={mockData.achievements} />
         <SubjectsSection initialSubjects={mockData.subjects} />
       </div>
